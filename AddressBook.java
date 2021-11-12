@@ -23,32 +23,39 @@ public class AddressBook {
         }
     }
 
-    class ContactInfo{
-        String firstName,lastName,address,city,state,zipcode,phoneNo,email;
+    class ContactInfo {
+        String firstName, lastName, address, city, state, zipcode, phoneNo, email;
 
-        public void setFirstName(String firstName){
-            this.firstName=firstName;
+        public void setFirstName(String firstName) {
+            this.firstName = firstName;
         }
-        public void setLastName(String lastName){
-            this.lastName=lastName;
+
+        public void setLastName(String lastName) {
+            this.lastName = lastName;
         }
-        public void setAddress(String address){
-            this.address=address;
+
+        public void setAddress(String address) {
+            this.address = address;
         }
-        public void setCity(String city){
-            this.city=city;
+
+        public void setCity(String city) {
+            this.city = city;
         }
-        public void setState(String state){
-            this.state=state;
+
+        public void setState(String state) {
+            this.state = state;
         }
-        public void setZipcode(String zipcode){
-            this.zipcode=zipcode;
+
+        public void setZipcode(String zipcode) {
+            this.zipcode = zipcode;
         }
-        public void setPhoneNo(String phoneNo){
-            this.phoneNo=phoneNo;
+
+        public void setPhoneNo(String phoneNo) {
+            this.phoneNo = phoneNo;
         }
-        public void setEmail(String email){
-            this.email=email;
+
+        public void setEmail(String email) {
+            this.email = email;
         }
 
         public void setContactInfo() {
@@ -64,9 +71,10 @@ public class AddressBook {
             setPhoneNo(sc.nextLine());
             setEmail(sc.nextLine());
         }
-        public void displayContactInfo(){
-            System.out.print("First Name: "+firstName+"\n Last Name: "+lastName+"\n Address: "+address+
-                    "\n City: "+city+"\n State: "+state+ "\n Zipcode: "+zipcode+"\n PhoneNO: "+phoneNo+"\n Email: "+email);
+
+        public void displayContactInfo() {
+            System.out.print("First Name: " + firstName + "\n Last Name: " + lastName + "\n Address: " + address +
+                    "\n City: " + city + "\n State: " + state + "\n Zipcode: " + zipcode + "\n PhoneNO: " + phoneNo + "\n Email: " + email);
         }
 
     }
