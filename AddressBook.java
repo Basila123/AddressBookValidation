@@ -3,6 +3,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 public class AddressBook {
     static String name;
+    static boolean is_Running=false;
 
         public static void main(String[] args){
 
@@ -12,12 +13,17 @@ public class AddressBook {
             Scanner scanner = new Scanner(System.in);
             System.out.println("Enter 1 to create a new contact");
             int choice = scanner.nextInt();
-            if (choice==1){
-                ContactInfo contact = new ContactInfo();
-                contact.setContactInfo();
-                name = contact.firstName + " " + contact.lastName;
-                addressBook.put(name,contact);
-                addressBook.get(name).displayContactInfo();
+            while (!is_Running) {
+                System.out.println("Enter 1 to create a new contact and 2 to exit");
+                if (choice == 1) {
+                    ContactInfo contact = new ContactInfo();
+                    contact.setContactInfo();
+                    name = contact.firstName + " " + contact.lastName;
+                    addressBook.put(name, contact);
+                    addressBook.get(name).displayContactInfo();
+                }else if (choice==2){
+                    is_Running = true;
+                }
             }
 
         }
