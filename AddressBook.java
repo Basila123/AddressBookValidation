@@ -1,37 +1,55 @@
 package com.bridgelabzAddressBookValidation;
 
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Scanner;
+import java.util.*;
 
 public class AddressBook{
     static String name;
     static boolean is_Running=false;
     static  HashMap<String,ContactInfo> addressBook = new HashMap<>();
 
-    public static void main(String[] args){
-
-        AddressBook addressBookObj = new AddressBook();
+    //Driver code
+    public static void main(String[] args) {
         System.out.println("Welcome to the ADDRESS BOOK");
 
+        HashMap<String, AddressBook> multiAdressBook = new HashMap<>();
+        AddressBook addressBookObj1 = new AddressBook();
+        AddressBook addressBookObj2 = new AddressBook();
+        AddressBook addressBookObj3 = new AddressBook();
+        multiAdressBook.put("AB1", addressBookObj1);
+        multiAdressBook.put("AB2", addressBookObj2);
+        multiAdressBook.put("AB3", addressBookObj3);
 
         while (!is_Running) {
             Scanner scanner = new Scanner(System.in);
+            System.out.println("Enter 1 ,2 ,3 for diff addressBook and 4 to exit");
+            int option = scanner.nextInt();
+            String key = null;
+            switch (option) {
+                case 1:
+                    key = "AB1";
+                    break;
+                case 2:
+                    key = "AB2";
+                    break;
+                case 3:
+                    key = "AB3";
+                    break;
+            }
+            if (option == 4) break;
             System.out.println(" Enter 1 to create a new contact \n 2 to exit \n 3 to edit existing contact \n 4 to delete an existing contact");
             int choice = scanner.nextInt();
             if (choice == 1) {
                 ContactInfo contact = new ContactInfo();
                 contact.setContactInfo();
                 name = contact.firstName.toUpperCase(Locale.ROOT) + " " + contact.lastName.toUpperCase(Locale.ROOT);
-                addressBook.put(name, contact);
-                addressBook.get(name).displayContactInfo();
-            }else if (choice==2){
+                multiAdressBook.get(key).addressBook.put(name, contact);
+                multiAdressBook.get(key).addressBook.get(name).displayContactInfo();
+            } else if (choice == 2) {
                 is_Running = true;
-            }else if (choice==3){
-                addressBookObj.editContact();
-                addressBook.get(name).displayContactInfo();
-            }else if (choice==4){
-                addressBookObj.deleteContact();
+            } else if (choice == 3) {
+                multiAdressBook.get(key).editContact();
+            } else if (choice == 4) {
+                multiAdressBook.get(key).deleteContact();
             }
         }
     }
